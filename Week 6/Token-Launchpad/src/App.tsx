@@ -1,3 +1,4 @@
+import "./App.css";
 import {
   ConnectionProvider,
   WalletProvider,
@@ -7,14 +8,8 @@ import {
   WalletDisconnectButton,
   WalletMultiButton,
 } from "@solana/wallet-adapter-react-ui";
-import { Airdrop } from "./Airdrop";
 import "@solana/wallet-adapter-react-ui/styles.css";
-
-import "./App.css";
-import { Balance } from "./Balance";
-import SignMessage from "./SignMessage";
-import SendTokens  from "./Transaction";
-import Token from "./Tokens";
+import { TokenLaunchpad } from "./components/TokenLaunchpad";
 
 function App() {
   return (
@@ -25,14 +20,16 @@ function App() {
     >
       <WalletProvider wallets={[]} autoConnect>
         <WalletModalProvider>
-          <WalletMultiButton />
-          <WalletDisconnectButton></WalletDisconnectButton>
-          <div>Hi There</div>
-          <Airdrop></Airdrop>
-          <Balance />
-          <SendTokens />
-          <SignMessage />
-          <Token/>
+          <div className="w-screen h-screen bg-black flex flex-col justify-center items-center ">
+            <h1 className="text-white text-3xl font-bold">Solana Token Launchpad</h1>
+            <div className=" space-y-8 p-12 rounded-2xl">
+              <div className="flex justify-between gap-x-24">
+                <WalletMultiButton />
+                <WalletDisconnectButton />
+              </div>
+              <TokenLaunchpad />
+            </div>
+          </div>
         </WalletModalProvider>
       </WalletProvider>
     </ConnectionProvider>
