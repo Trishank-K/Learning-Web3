@@ -1,6 +1,5 @@
 "use client";
 import { AnimatePresence, motion } from "motion/react";
-import { useState, useEffect } from "react";
 import { cn } from "../../lib/utils";
 
 const CheckIcon = ({ className }: { className?: string }) => {
